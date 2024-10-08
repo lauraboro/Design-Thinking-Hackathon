@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/scan', [ScanController::class, 'scanBarcode']);
 
-Route::delete('/deleteProduct', [ListController::class, 'deleteProduct']);
+Route::delete('/deleteProduct/{productName}/{listId}', [ListController::class, 'deleteProduct']);
 Route::get('/getProducts/{listId}', [ListController::class, 'getProducts']);
 
 Route::post('/register', [AuthController::class, 'register']);
