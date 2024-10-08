@@ -10,7 +10,9 @@ With this scanner, it becomes easier to directly add items to your grocery list,
 
 ## Info
 start the database with : docker compose up -d
+
 apply the migrations to the db with : php artisan migrate
+
 start the application with : php artisan serve
 
 ## Api Endpoint Overview
