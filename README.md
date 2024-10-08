@@ -27,6 +27,4 @@ Register new User (POST): http://localhost:8000/api/register -> send username an
 
 Login existing User (POST): http://localhost:8000/api/login -> send username and password as body
 
-Scan product (POST): http://localhost:8000/api/scan/{barcode} The product then gets automatically added to the list
-
 
