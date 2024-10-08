@@ -19,4 +19,12 @@ start the application with : php artisan serve
 
 ## Api Endpoint Overview
 
-tba
+Get all products (GET): http://localhost:8000/api/getProducts/{listId} -> returns array of products like this [{"product_name":"test","product_barcode":"dfghjk","product_quantity":1,"product_image":null},{"product_name":"brot","product_barcode":"adsfg","product_quantity":1,"product_image":null}]
+
+Delete product (DELETE): http://localhost:8000/api/deleteProduct/{productName}/{listId}
+
+Register new User (POST): http://localhost:8000/api/register -> send username and password as body
+
+Login existing User (POST): http://localhost:8000/api/login -> send username and password as body
+
+
