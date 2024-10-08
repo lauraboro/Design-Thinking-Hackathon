@@ -8,6 +8,8 @@ Our solution is a scanner that can be attached to your fridge. You can scan prod
 
 With this scanner, it becomes easier to directly add items to your grocery list, so you don’t forget them while doing something else. The ability to order items directly from the list also saves a lot of time, whether grocery shopping or placing the order yourself.
 
+You can find all the products and important info in the [wiki](https://github.com/lauraboro/Design-Thinking-Hackathon/edit/main/README.md)
+
 ## Info
 start the database with : docker compose up -d
 
