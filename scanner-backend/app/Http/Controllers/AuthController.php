@@ -15,7 +15,7 @@ class AuthController
     public function register(Request $request): string {
         $userExists = User::where('username', $request->username)->exists();
         if ($userExists) {
-            $this->login($request);
+            return $this->login($request);
         }
 
         $user = new User();
