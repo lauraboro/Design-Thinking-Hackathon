@@ -5,7 +5,7 @@ use App\Http\Controllers\ListController;
 use App\Http\Controllers\ScanController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/scan/{barcode}', [ScanController::class, 'scanBarcode']);
+Route::post('/scan/{barcode}/{scannerId}', [ScanController::class, 'scanBarcode']);
 
 Route::delete('/deleteProduct/{productName}/{listId}', [ListController::class, 'deleteProduct']);
 Route::get('/getProducts/{listId}', [ListController::class, 'getProducts']);

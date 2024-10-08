@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GroceryList;
 use App\Models\GroceryListProducts;
+use App\Models\ScannerUser;
 use Illuminate\Support\Facades\Http;
 
 
@@ -11,7 +13,7 @@ use Illuminate\Support\Facades\Http;
  */
 class ScanController
 {
-    public function scanBarcode($barcode) {
+    public function scanBarcode($barcode, $scannerId) {
         $scannedProduct = Http::get('https://world.openfoodfacts.org/api/v2/product/' . $barcode . '?fields=product_name');
         if(!$scannedProduct->successful()) {
             return response()->json(['message' => 'Product not found'], 400);
@@ -20,8 +22,10 @@ class ScanController
         $newProduct = new GroceryListProducts();
         $newProduct->product_barcode = $scannedProduct['code'];
         $newProduct->product_name = $scannedProduct['product']['product_name'];
-        //1 is a placeholder for now, I'm confused how we want to do this
-        $newProduct->grocery_list_id = 1;
+
+        $scanUserId = ScannerUser::where('scanner_id', $scannerId)->pluck('user_id')->first();
+        $listToAdd = GroceryList::where('user_id', $scanUserId)->pluck('id')->first();
+        $newProduct->grocery_list_id = $listToAdd;
         $newProduct->save();
 
         return response()->json(['message' => 'Product added to the list!'], 201);
