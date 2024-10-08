@@ -16,7 +16,14 @@ class ListController
                 ->get();
         return $allProducts;
     }
-    public function deleteProduct(): string {
-        return "test";
+    public function deleteProduct($productName, $listId): string {
+        $productToDelete = GroceryListProducts::where('grocery_list_id', $listId)
+            ->where('product_name', $productName)
+            ->first();
+        if($productToDelete === null) {
+            return response()->json(['message' => 'Product not found.'], 400);
+        }
+        $productToDelete->delete();
+        return response()->json(['message' => 'Product deleted from grocery list.'], 201);
     }
 }
