@@ -15,7 +15,7 @@ class AuthController
     public function register(Request $request): string {
         $userExists = User::where('username', $request->username)->exists();
         if ($userExists) {
-            return response()->json(['message' => 'Username already exists'], 400);
+            $this->login($request);
         }
 
         $user = new User();
