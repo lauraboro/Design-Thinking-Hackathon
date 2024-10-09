@@ -16,7 +16,7 @@ class ListController
                 ->get();
         return $allProducts;
     }
-    public function deleteProduct($productName, $listId): string {
+    public function deleteProduct($productName, $listId) {
         $productToDelete = GroceryListProducts::where('grocery_list_id', $listId)
             ->where('product_name', $productName)
             ->first();

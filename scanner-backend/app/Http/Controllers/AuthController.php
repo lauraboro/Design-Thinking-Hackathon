@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
  */
 class AuthController
 {
-    public function register(Request $request): string {
+    public function register(Request $request) {
         $userExists = User::where('username', $request->username)->exists();
         if ($userExists) {
             return response()->json(['message' => 'Username already exists'], 400);
@@ -31,7 +31,7 @@ class AuthController
         return response()->json(['message' => 'User registered successfully'], 201);
     }
 
-    public function login(Request $request): string {
+    public function login(Request $request) {
         $maybeUser = User::where('username', $request->username)
             ->where('password', $request->password)->first();
         if ($maybeUser === null) {
