@@ -15,7 +15,7 @@ class AuthController
     public function register(Request $request): string {
         $userExists = User::where('username', $request->username)->exists();
         if ($userExists) {
-            return $this->login($request);
+            return response()->json(['message' => 'Username already exists'], 400);
         }
 
         $user = new User();
@@ -33,7 +33,7 @@ class AuthController
 
     public function login(Request $request): string {
         $maybeUser = User::where('username', $request->username)
-            ->where('password', $request->password);
+            ->where('password', $request->password)->first();
         if ($maybeUser === null) {
             return response()->json(['message' => 'Wrong username or password'], 400);
         }
