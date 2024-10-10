@@ -13,6 +13,8 @@ You can find all the products and important info in the [wiki](https://github.co
 ## Info
 start the database with : docker compose up -d
 
+install dependencies: composer install
+
 apply the migrations to the db with : php artisan migrate
 
 start the application with : php artisan serve
