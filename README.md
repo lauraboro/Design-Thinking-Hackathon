@@ -10,6 +10,8 @@ With this scanner, it becomes easier to directly add items to your grocery list,
 
 You can find all the products and important info in the [wiki](https://github.com/lauraboro/Design-Thinking-Hackathon/wiki)
 
+The frontend is stored in the following repository: [SmartHomeFrontend](https://github.com/WahresDoUFi/SmartHomeFrontend)
+
 ## Info
 start the database with : docker compose up -d
 
