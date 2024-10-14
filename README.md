@@ -56,3 +56,21 @@ There are two possibilities, to connect to the backend, depending on where the b
 
 1. If the backend is running on the same Raspberry Pi, ensure that line 30 of scanner.py is configured as follows: url = f"http://localhost:8000/api/scan/{data}/{scannerId}"
 2. If the backend is hosted on a different device, replace <IP of the backend device> with the actual IP address of the device running the backend: url = f"http://<IP of the backend device>:8000/api/scan/{data}/{scannerId}"
+
+## Current Working Device Quickstart
+Currently every part of the application (scanner, backend, frontend) is served by the Raspberry Pi 5 via Apache2. If set up properly, any device in the same network is able to open the frontend.
+Follow these steps to set up:
+
+1.  cd /var/www/html/Design-Thinking-Hackathon/scanner-backend/
+2.  sudo php artisan serve
+3.  cd /var/www/html/Design-Thinking-Hackathon/scanner-python/
+4.  python app.py
+5.  Type in "1" when asked for scanner ID
+6.  Get ip adress by typing hostname -I
+7.  Add the ip into the baseURL in var/www/html/SmartHomeFrontend/js/app.js
+8.  sudo service apache2 restart
+
+Notes: 
+1. Currently the backend is served with artisan and gets proxied by apache
+2. To be shure to not quit started applications, use a new terminal window after starting backend and scanner and do not close the old windows.
+
