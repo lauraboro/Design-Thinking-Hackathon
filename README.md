@@ -73,4 +73,5 @@ Follow these steps to set up:
 Notes: 
 1. Currently the backend is served with artisan and gets proxied by apache
 2. To be shure to not quit started applications, use a new terminal window after starting backend and scanner and do not close the old windows.
+3. This is only meant to work if the client device is currently using the same network
 
